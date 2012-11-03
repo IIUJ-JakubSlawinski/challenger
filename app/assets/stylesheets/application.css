@@ -11,3 +11,21 @@
  *= require_self
  *= require_tree .
  */
+
+ @mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.debug_dump {
+  clear: both;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+body {
+  padding-top: 60px;
+}
