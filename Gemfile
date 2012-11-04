@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'jquery-rails', '2.0.2'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

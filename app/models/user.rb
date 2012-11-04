@@ -8,6 +8,8 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
+#  remember_token  :string(255)
+#  facebook_uid    :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -22,6 +24,19 @@ class User < ActiveRecord::Base
 
   before_save { self.email.downcase! }
   before_save :create_remember_token
+
+  def self.create_with_omniauth(auth)
+    if(User.find_by_email(auth[:info][:email]).blank?)
+      user = User.new
+      user.facebook_uid = auth[:uid]
+      user.name = auth[:info][:name]
+      user.email = auth[:info][:email]
+      user.save(:validate => false)
+      user
+    else
+      false
+    end
+  end
 
   private
 

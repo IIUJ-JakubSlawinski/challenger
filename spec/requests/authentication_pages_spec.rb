@@ -35,12 +35,7 @@ describe "Authentication" do
       before { sign_in user }
 
       it { should have_selector('div.alert.alert-success', text: 'Successfully signed in') }
-      it { should have_selector('title', text: user.name) }
-      it { should have_link('Profile', href: user_path(user)) }
-      it { should have_link('Settings', href: edit_user_path(user)) }
-      it { should have_link('Sign out', href: signout_path) }
-      it { should_not have_link('Sign up', href: signup_path) }
-      it { should_not have_link('Sign in', href: signin_path) }
+      it_should_behave_like "user page with logged in user"
 
       describe "followed by signout" do
         before { click_link "Sign out" }
@@ -66,12 +61,6 @@ describe "Authentication" do
         describe "after signing in" do
           it "should render the desired protected page" do
             page.should have_selector('title', text: "Edit user")
-          end
-
-          describe "when signing in again" do
-            before do
-            end
-            
           end
         end
       end

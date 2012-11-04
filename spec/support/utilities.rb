@@ -19,3 +19,11 @@ def fill_user_info_form(name, email, password, password_confirmation=nil)
     fill_in "Confirmation", with: password
   end
 end
+
+def configure_valid_mock_fb_auth(user)
+  OmniAuth.config.add_mock(:facebook, :uid => '12345', info: { name: user.name, email: user.email })
+end
+
+def configure_invalid_mock_fb_auth
+  OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
+end

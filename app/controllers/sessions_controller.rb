@@ -4,6 +4,28 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def create_from_facebook
+    auth = request.env["omniauth.auth"]
+    user = User.find_by_facebook_uid(auth["uid"]) || User.create_with_omniauth(auth)
+    if user
+      sign_in user
+      flash[:success] = "Successfully signed in with facebook"
+      redirect_to user #redirect_back_or in SessionsHelper
+    else
+      redirect_to root_url, notice: "Email your facebook has provided was already used to signup"
+    end
+  end
+
+  def omniauth_callback_error
+    if (params[:error_reason] == "user_denied")
+      flash[:error] = "You have denied the access!"
+    else
+      flash[:error] = "Error with authentication"
+    end
+    
+    redirect_to root_url
+  end
+
   def create
     user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
