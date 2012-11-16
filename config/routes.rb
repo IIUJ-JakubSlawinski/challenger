@@ -1,4 +1,15 @@
 Challenger::Application.routes.draw do
+  root :to => 'Home#index'
+
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match 'signup',  to: 'Users#new'
+  match 'signin',  to: 'Sessions#new'
+  match 'signout', to: 'Sessions#destroy', via: :delete
+
+  match "/auth/:provider/callback" => "Sessions#create_from_facebook"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
