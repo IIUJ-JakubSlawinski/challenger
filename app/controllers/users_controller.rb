@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:success] = "Welcome to Challenger"
-      sign_in @user
+      sign_in_user @user
       redirect_to @user
     else
       render 'new'
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
-      sign_in @user
+      sign_in_user @user
       redirect_to @user
     else
       render 'edit'
