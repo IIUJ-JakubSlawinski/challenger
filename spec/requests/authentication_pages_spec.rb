@@ -14,7 +14,7 @@ describe "Authentication" do
       describe "as a logged in user" do
         let(:user) { FactoryGirl.create(:user) }
         before do 
-          sign_in_user user
+          sign_in user
           visit signin_path
         end
 
@@ -32,7 +32,7 @@ describe "Authentication" do
 
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
-      before { sign_in_user user }
+      before { sign_in user }
 
       it { should have_selector('div.alert.alert-success', text: 'Successfully signed in') }
       it_should_behave_like "user page with logged in user"
@@ -81,7 +81,7 @@ describe "Authentication" do
     describe "as a wrong user" do
       let(:user) { FactoryGirl.create(:user) }
       let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
-      before { sign_in_user user }
+      before { sign_in user }
 
       describe "visiting Users#edit page" do
         before { visit edit_user_path(wrong_user) }
