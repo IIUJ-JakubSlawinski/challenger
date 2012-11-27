@@ -11,32 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125224356) do
+ActiveRecord::Schema.define(:version => 20121127195805) do
 
-  create_table "groups", :force => true do |t|
+  create_table "places", :force => true do |t|
     t.string   "name"
     t.string   "city"
-    t.boolean  "closed"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "groups_users", :id => false, :force => true do |t|
-    t.integer "group_id"
-    t.integer "user_id"
-  end
-
-  create_table "leagues", :force => true do |t|
-    t.string   "name"
-    t.integer  "group_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "leagues", ["group_id"], :name => "index_leagues_on_group_id"
-
-  create_table "sports", :force => true do |t|
-    t.string   "name"
+    t.string   "address"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -49,7 +29,6 @@ ActiveRecord::Schema.define(:version => 20121125224356) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "facebook_uid"
-    t.integer  "group_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
