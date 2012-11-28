@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127202421) do
+ActiveRecord::Schema.define(:version => 20121128190530) do
 
   create_table "leagues", :force => true do |t|
     t.string   "name"
@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(:version => 20121127202421) do
     t.string   "name"
     t.string   "description"
     t.integer  "place_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "league_id"
   end
 
   add_index "meetings", ["place_id"], :name => "index_meetings_on_place_id"
