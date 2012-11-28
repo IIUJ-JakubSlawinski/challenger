@@ -12,6 +12,7 @@ end
 
 group :development do
   gem 'annotate', '2.5.0'
+  gem 'awesome_print', :require => 'ap'
 end
 
 group :test do
