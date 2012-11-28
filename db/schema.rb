@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20121128190530) do
     t.string   "name"
     t.string   "description"
     t.integer  "place_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "league_id"
   end
 
