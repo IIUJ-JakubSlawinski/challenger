@@ -6,4 +6,6 @@ class League < ActiveRecord::Base
   has_many :users, through: :roles
 
   attr_accessible :name
+
+  validates :name, presence: true, length: {maximum: 60, minimum: 2}, uniqueness: { case_sensitive: false }
 end
