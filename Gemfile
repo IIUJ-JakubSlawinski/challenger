@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 gem 'jquery-rails', '2.0.2'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'omniauth-facebook', '1.4.1'
+gem 'faker', '1.0.1' #used for creating fake users in tasks (populating)
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

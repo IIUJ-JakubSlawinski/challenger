@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: leagues
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  place_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class League < ActiveRecord::Base
   belongs_to :place
   has_many :meetings

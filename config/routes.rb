@@ -1,9 +1,11 @@
 Challenger::Application.routes.draw do
+
   root :to => 'Home#index'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-
+  resources :leagues
+  
   match 'signup',  to: 'Users#new'
   match 'signin',  to: 'Sessions#new'
   match 'signout', to: 'Sessions#destroy', via: :delete

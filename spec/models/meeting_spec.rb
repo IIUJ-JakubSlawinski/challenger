@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: meetings
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :string(255)
+#  place_id    :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  league_id   :integer
+#
+
 require 'spec_helper'
 
 describe Meeting do
