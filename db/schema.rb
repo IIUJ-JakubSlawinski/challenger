@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125000210) do
+ActiveRecord::Schema.define(:version => 20121129010520) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,6 +45,44 @@ ActiveRecord::Schema.define(:version => 20121125000210) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "leagues", :force => true do |t|
+    t.string   "name"
+    t.integer  "place_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "leagues", ["place_id"], :name => "index_leagues_on_place_id"
+
+  create_table "meetings", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "place_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "meetings", ["place_id"], :name => "index_meetings_on_place_id"
+
+  create_table "places", :force => true do |t|
+    t.string   "name"
+    t.string   "city"
+    t.string   "address"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "roles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "league_id"
+    t.integer  "role"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "roles", ["league_id"], :name => "index_roles_on_league_id"
+  add_index "roles", ["user_id"], :name => "index_roles_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

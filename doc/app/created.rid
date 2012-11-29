@@ -1,0 +1,12 @@
+Wed, 21 Nov 2012 23:53:21 +0100
+doc/README_FOR_APP	Fri, 02 Nov 2012 20:42:35 +0100
+app/controllers/sessions_controller.rb	Fri, 16 Nov 2012 19:49:41 +0100
+app/controllers/home_controller.rb	Fri, 16 Nov 2012 19:49:41 +0100
+app/controllers/users_controller.rb	Fri, 16 Nov 2012 19:49:41 +0100
+app/controllers/application_controller.rb	Fri, 16 Nov 2012 19:49:41 +0100
+app/helpers/users_helper.rb	Fri, 16 Nov 2012 19:49:41 +0100
+app/helpers/sessions_helper.rb	Fri, 16 Nov 2012 19:49:41 +0100
+app/helpers/home_helper.rb	Fri, 16 Nov 2012 19:49:41 +0100
+app/helpers/application_helper.rb	Fri, 16 Nov 2012 19:49:41 +0100
+app/models/user.rb	Sun, 18 Nov 2012 00:27:15 +0100
+app/models/group.rb	Wed, 21 Nov 2012 22:41:02 +0100
